@@ -1,0 +1,15 @@
+services: 
+  prom-pushgateway:
+    image: prom/pushgateway
+    ports: 
+      - 9091:9091
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    ports:
+      - 9090:9090
+    network_mode: host
