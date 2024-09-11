@@ -1,0 +1,18 @@
+PATH
+  remote: ../..
+  specs:
+    emrb (0.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  emrb!
+
+BUNDLED WITH
+   2.5.18
