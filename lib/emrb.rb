@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
-require_relative "prometheus/prometheus"
-require_relative "instruments/instruments"
-require_relative "instruments/exporters"
+require "prometheus"
+require "prometheus/client/push"
+require "prometheus/middleware/collector"
+require "prometheus/middleware/exporter"
+require_relative "emrb/ext/prometheus"
 
+require_relative "emrb/version"
+require_relative "emrb/instruments"
+
+# TODO: Add docs
 module Emrb
-  VERSION = "0.0.0"
 end
