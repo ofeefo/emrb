@@ -1,16 +1,14 @@
 AllCops:
   SuggestExtensions: false
-  TargetRubyVersion: 3.1
+  TargetRubyVersion: 3.2
   NewCops: enable
   Exclude:
-    - 'example/*'
+    - example/**/*
 
 Style/StringLiterals:
-  Enabled: true
   EnforcedStyle: double_quotes
 
 Style/StringLiteralsInInterpolation:
-  Enabled: true
   EnforcedStyle: double_quotes
 
 Layout/LineLength:
@@ -26,9 +24,8 @@ Layout/FirstHashElementIndentation:
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
-Lint/SuppressedException:
-  Exclude:
-    - spec/spec_helper.rb
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
 
-Style/Documentation:
-  Enabled: false
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
