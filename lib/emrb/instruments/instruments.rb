@@ -5,7 +5,7 @@ module Emrb
   module Instruments
     def self.included(base) = base.extend(ClassMethods)
 
-    # Happens when declared instruments might override one the class methods.
+    # CollidingNameError indicates that a declared instrument will clash with a library method. Use another name.
     class CollidingNameError < StandardError
       def initialize(name) = super("Identifying an instrument with #{name} will override the class method")
     end
@@ -13,6 +13,7 @@ module Emrb
     # Provides the instrumentation facilities when including/extending Instruments.
     module ClassMethods
       FORBIDDEN_IDENTIFIERS = instance_methods
+
       # Initializes a new Prometheus counter using the provided identifier, documentation,
       # and either optional keyword arguments or a block that returns the keyword arguments.
       # The block takes precedence when supplied.
@@ -258,7 +259,7 @@ module Emrb
       end
       # rubocop:enable Metrics/MethodLength
 
-      # Iternal: validates whether to concatenate the given identifier with
+      # Internal: validates whether to concatenate the given identifier with
       # a pre-existing susbsystem name.
       def id_for(identifier)
         return identifier unless @subsystem
