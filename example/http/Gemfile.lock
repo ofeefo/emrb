@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    emrb (0.1.1)
+    emrb (0.1.2)
       prometheus-client (~> 4)
 
 GEM
