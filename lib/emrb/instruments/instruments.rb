@@ -70,7 +70,7 @@ module Emrb
       # For a full list of options and functionalities for creating and utilizing a Gauge,
       # refer to the Prometheus client documentation:
       # https://github.com/prometheus/client_ruby?tab=readme-ov-file#gauge
-      def gauge(identifier, docs, **, &)
+      def gauge(identifier, docs = "...", **, &)
         check_identifier!(identifier)
         opts = block_opts(**, &)
         State.gauge(id_for(identifier), docs, **opts).tap do |g|
@@ -108,7 +108,7 @@ module Emrb
       # For all available options and functionalities for creating and utilizing a Histogram,
       # refer to the Prometheus client documentation:
       # https://github.com/prometheus/client_ruby?tab=readme-ov-file#histogram
-      def histogram(identifier, docs, **, &)
+      def histogram(identifier, docs = "...", **, &)
         check_identifier!(identifier)
         opts = block_opts(**, &)
         State.histogram(id_for(identifier), docs, **opts).tap do |h|
@@ -139,7 +139,7 @@ module Emrb
       # For a complete list of options and functionalities for creating and utilizing a Summary,
       # refer to the Prometheus client documentation:
       # https://github.com/prometheus/client_ruby?tab=readme-ov-file#summary
-      def summary(identifier, docs, **, &)
+      def summary(identifier, docs = "...", **, &)
         check_identifier!(identifier)
         opts = block_opts(**, &)
         State.summary(id_for(identifier), docs, **opts).tap do |s|
