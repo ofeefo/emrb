@@ -29,3 +29,12 @@ Layout/ArgumentAlignment:
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
+
+Metrics/MethodLength:
+  Exclude:
+    - lib/emrb/server.rb
+
+Style/Documentation:
+  Exclude:
+    - lib/emrb/server.rb
+    - spec/**/*

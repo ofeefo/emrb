@@ -9,6 +9,10 @@ SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter unless ENV["CI"].nil?
 SimpleCov.start
 Bundler.require(:default)
 
+require "emrb"
+require "emrb/server"
+require "httparty"
+
 require_relative "support/prom_helpers"
 
 RSpec.configure do |config|
