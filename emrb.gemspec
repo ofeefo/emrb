@@ -5,8 +5,8 @@ require_relative "lib/emrb/version"
 Gem::Specification.new do |spec|
   spec.name = "emrb"
   spec.version = Emrb::VERSION
-  spec.authors = ["Felipe Mariotti"]
-  spec.email = ["felipe.mtt95@gmail.com"]
+  spec.authors = ["Felipe Mariotti", "Vito Sartori"]
+  spec.email = ["felipe.mtt95@gmail.com", "hey@vito.io"]
 
   spec.summary = "Easy prometheus instrumentation for Ruby applications"
   spec.description = spec.summary

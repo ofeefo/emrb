@@ -1,0 +1,23 @@
+name: Run tests
+
+on:
+  push:
+    branches-ignore:
+    - "master"
+
+jobs:
+  test:
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+    
+    - run: bundle
+      
+    - name: Run Rubocop
+      run: bundle exec rubocop
+
+    - name: Run RSpec
+      run: bundle exec rspec

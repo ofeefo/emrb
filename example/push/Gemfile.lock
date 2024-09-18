@@ -1,11 +1,15 @@
 PATH
   remote: ../..
   specs:
-    emrb (0.0.0)
+    emrb (0.1.0)
+      prometheus-client (~> 4)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    base64 (0.2.0)
+    prometheus-client (4.2.3)
+      base64
 
 PLATFORMS
   ruby
