@@ -19,6 +19,15 @@ module Prometheus
     # that can be used for implementing facilities.
     class Histogram
       alias obs observe
+
+      def measure(**, &)
+        raise LocalJumpError, "no block given" unless block_given?
+
+        now = Time.now
+        yield
+      ensure
+        obs(Time.now - now, **)
+      end
     end
 
     # Internal: Extension of Prometheus::Client::Summary
