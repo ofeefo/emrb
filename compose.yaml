@@ -1,0 +1,10 @@
+services:
+  emrb:
+    image: ruby:3
+    volumes:
+      - ".:/app"
+      - gems:/usr/local/bundle
+    working_dir: "/app"
+
+volumes:
+  gems:
