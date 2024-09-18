@@ -182,10 +182,10 @@ module Emrb
       # frequency - Frequency, in seconds, in which #push will be called.
       #
       # Returns nothing.
-      def push_periodically(job, frequency = 10)
+      def push_periodically(job, frequency = 10, **)
         Thread.new do
           sleep(frequency)
-          push(job)
+          push(job, **)
         end
       end
 
