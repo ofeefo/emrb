@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe do
-  after do
-    Prometheus::Client.instance_variable_set(:@config, Prometheus::Client::Config.new)
-    Prometheus::Client.instance_variable_set(:@registry, Prometheus::Client::Registry.new)
+RSpec.describe Emrb do
+  around do |example|
+    reset_registry!
+    example.call
+    reset_registry!
   end
 
   let(:raw_dummy) { Class.new.tap { _1.include(Emrb::Instruments) } }
