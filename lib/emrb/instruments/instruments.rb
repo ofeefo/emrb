@@ -176,6 +176,19 @@ module Emrb
       # end
       def push(job, **) = State.push(job, **)
 
+      # Periodically invokes #push in a given frequency.
+      #
+      # job       - Job identifier
+      # frequency - Frequency, in seconds, in which #push will be called.
+      #
+      # Returns nothing.
+      def push_periodically(job, frequency = 10)
+        Thread.new do
+          sleep(frequency)
+          push(job)
+        end
+      end
+
       # Allows instruments to be declared with preset labels.
       #
       # labels - A hash containing the preset labels and values
