@@ -12,6 +12,7 @@ Add the gem to your project:
 
 
 ### Basic usage
+
 ```ruby
 require "emrb"
 
@@ -28,10 +29,12 @@ Metrics.my_counter.inc
 
 ## Features
 ### Supported metrics
+
 All [Prometheus metrics](https://github.com/prometheus/client_ruby?tab=readme-ov-file#metrics) 
 are supported and can be created the same way as in the example above.
 
 ### Providing metric-specific configs
+
 Most of the provided methods are nothing but a shorthand for creating instruments (with some facilities): 
 ```ruby
 require "emrb"
@@ -50,6 +53,7 @@ end
 ```
 
 When your metric requires multiple options, a single line may become unwieldy. In such cases, you can use a block to define the metric config:
+
 ```ruby
 require "emrb"
 
@@ -70,6 +74,7 @@ end
 
 ### Presets
 If more than one of your metrics leverages the same `preset_labels`, the following is possible:
+
 ```ruby
 require "emrb"
 
@@ -91,7 +96,9 @@ end
 ```
 
 ### Subsystems
+
 You can organize your metrics into subsystems, allowing different components of your application to group related metrics:
+
 ```ruby
 require "emrb"
 
@@ -118,18 +125,19 @@ end
 ```
 
 Metrics within a subsystem are scoped by the subsystem's name. To access metrics within a subsystem:
+
 ```ruby
 Metrics.postgres.master.op_count
 ```
 
 ### Subsystem's metrics name
+
 Metrics created within subsystems are prefixed with the subsystem's name. For example:
 * The `request_duration` metric within the `http` subsystem  will be named `http_request_duration`
 * The `op_count` metric of `postgres.master` will be named `postgres_master_op_count`.
 
-
-
 ## Exposing metrics
+
 Both [`Prometheus::Middleware::Exporter`](https://github.com/prometheus/client_ruby/blob/main/lib/prometheus/middleware/exporter.rb) 
 and [`Prometheus::Middleware::Collector`](https://github.com/prometheus/client_ruby/blob/main/lib/prometheus/middleware/collector.rb) 
 are [Rack middlewares](https://github.com/rack/rack) included in this gem as `Emrb::Exporter` and `Emrb::Collector`.
@@ -138,6 +146,7 @@ are [Rack middlewares](https://github.com/rack/rack) included in this gem as `Em
 If you're unfamiliar with how to use these middlewares, the [http example](./example/http/main.rb) provides a demonstration.
 
 ## Pushing metrics
+
 ```ruby
 require "emrb"
 
@@ -153,7 +162,7 @@ Metrics.my_counter.inc
 Metrics.push("example", gateway: "http://localhost:9091")
 ```
 
-# License
+## License
 ```
 The MIT License (MIT)
 
